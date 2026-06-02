@@ -27,7 +27,7 @@ public class App {
          * Añade los empleados a la plantilla
          */
         
-        System.out.println("1. Creando empleados y asignándolos a departamentos...\n");
+        System.out.println("1. Creando empleados y asignandolos a departamentos...\n");
 
         Employee homer = employeeService.createEmployee("Homer Simpson", 1, Department.REACTOR_CONTROL, 
             ExperienceLevel.NOVATO, Shift.MORNING);
@@ -65,7 +65,7 @@ public class App {
          */
         System.out.println("\n4. Cambio de experiencia...\n");
         employeeService.changeEmployeeExperienceLevel(carl, ExperienceLevel.EXPERTO);
-        System.out.println("Empleado " + carl.getName() + " cambió su nivel de experiencia a " + carl.getExperienceLevel().name());
+        System.out.println("Empleado " + carl.getName() + " cambio su nivel de experiencia a " + carl.getExperienceLevel().name());
         System.out.println("Empleado " + carl.toString());
 
         /*
@@ -74,7 +74,7 @@ public class App {
          * con el nivel de experiencia y el número de empleados en ese nivel
          */
 
-        System.out.println("\n4. Estadísticas por nivel de experiencia:\n");
+        System.out.println("\n4. Estadisticas por nivel de experiencia:\n");
         Map<String, Long> experienceStats = employeeService.getExperienceLevelStatistics();
         experienceStats.forEach((level, count) -> 
             System.out.println(level + ": " + count + " empleados"));

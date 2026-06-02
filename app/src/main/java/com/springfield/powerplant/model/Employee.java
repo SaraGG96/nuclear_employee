@@ -1,16 +1,18 @@
 package com.springfield.powerplant.model;
 
+import java.util.Objects;
+
 public final class Employee {
 
     private String name;
-    private int id;
+    private Integer id;
     private Department department;
     private ExperienceLevel experienceLevel;
     private Shift shift;
 
     public Employee(String name, int id, Department department, ExperienceLevel experienceLevel, Shift shift) {
         this.name = name;
-        this.id = id;
+        this.id = Objects.requireNonNull(id, "No puede ser null");
         this.department = department;
         this.experienceLevel = experienceLevel;
         this.shift = shift;
@@ -36,29 +38,15 @@ public final class Employee {
         return this.shift;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
     public void setExperienceLevel(ExperienceLevel experienceLevel) {
         this.experienceLevel = experienceLevel;
     }
 
-    public void setShift(Shift shift) {
-        this.shift = shift;
-    }
+
     
      @Override
      public String toString() {
-        return "Nombre: " + this.name + "\n" + "ID: " + this.id + "\n" + "Nivel: " + this.experienceLevel + "\n" + "Turno: " + this.shift + "\n";
+        return "( Nombre: " + this.name + " | " + "ID: " + this.id + " | " + "Nivel: " + this.experienceLevel.name() + " | " + "Turno: " + this.shift.getNombreEspanol() + " )";
      }
      
 }
