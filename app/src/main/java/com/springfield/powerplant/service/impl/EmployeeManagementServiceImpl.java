@@ -23,19 +23,24 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         return employee;
     }
 
+    public List<Employee> getEmployees() {
+        return this.employees;
+    }
+
     public void listCrew() {
-        for (var employee : this.employees) {
+        for (var employee : getEmployees()) {
             System.out.println(employee.toString());
         }
     }
 
     public int crewSize() {
-        return this.employees.size();
+        return getEmployees().size();
     }
+
 
     public List<Employee> findEmployeesByDepartment(Department targetDepartament) {
         ArrayList<Employee> empleadosReactor = new ArrayList<Employee>();
-        for (var employee : this.employees) {
+        for (var employee : getEmployees()) {
             if (employee.getDepartment() == targetDepartament) {
                 empleadosReactor.add(employee);
             }
@@ -44,8 +49,8 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     }
 
     public void changeEmployeeExperienceLevel(Employee targetEmployee, ExperienceLevel targetLevel) {
-        for (var employee : this.employees) {
-            if (employee.getName() == targetEmployee.getName()) {
+        for (var employee : getEmployees()) {
+            if (employee.getId() == targetEmployee.getId()) {
                 employee.setExperienceLevel(targetLevel);
             }
         }
@@ -57,8 +62,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         Long intermedioCount = 0l;
         Long expertoCount = 0l;
         
-        for (var employee : this.employees) {
-
+        for (var employee : getEmployees()) {
 
             if (employee.getExperienceLevel() == ExperienceLevel.NOVATO) {
                 novatoCount += 1;
@@ -82,7 +86,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
         boolean isCovered = false;
 
-        for (var employee : this.employees) {
+        for (var employee : getEmployees()) {
             if (employee.getDepartment() == targetDepartment) {
                 isCovered = true;
             } else {

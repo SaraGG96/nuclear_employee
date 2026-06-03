@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'jacoco'
+    id 'java'
 }
 
 repositories {
@@ -17,10 +19,9 @@ repositories {
 
 dependencies {
     // Use JUnit test framework.
-    testImplementation libs.junit
+    testImplementation 'junit:junit:4.13.2'
+    implementation(platform("org.jacoco:jacoco:0.8.14"))
 
-    // This dependency is used by the application.
-    implementation libs.guava
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -33,4 +34,10 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'com.springfield.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
 }
