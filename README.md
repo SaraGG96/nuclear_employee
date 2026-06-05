@@ -25,3 +25,4 @@ git clone https://github.com/SaraGG96/examen.git
 7. implementation libs.guava - eliminar de build
 8. Crear el jar (simple) con *"gradle jar"*
 9. Ejecutar el jar con **java -jar .\app\build\libs\app.jar**
+10. El get de id, para asegurarse el doble de que nunca se obtiene un null, se puede poner como **Optional<Integer> getId() ** y devolver **return Optional.ofNullable(id);**

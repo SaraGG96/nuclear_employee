@@ -1,6 +1,6 @@
 package com.springfield.powerplant.model;
-
 import java.util.Objects;
+import java.util.Optional;
 
 public final class Employee {
 
@@ -10,7 +10,7 @@ public final class Employee {
     private ExperienceLevel experienceLevel;
     private Shift shift;
 
-    public Employee(String name, int id, Department department, ExperienceLevel experienceLevel, Shift shift) {
+    public Employee(String name, Integer id, Department department, ExperienceLevel experienceLevel, Shift shift) {
         this.name = name;
         this.id = Objects.requireNonNull(id, "No puede ser null");
         this.department = department;
@@ -22,8 +22,8 @@ public final class Employee {
         return this.name;
     }
 
-    public int getId() {
-        return this.id;
+    public Optional<Integer> getId() {
+        return Optional.ofNullable(id);
     }
 
     public Department getDepartment() {
