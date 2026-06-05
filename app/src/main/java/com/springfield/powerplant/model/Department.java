@@ -9,7 +9,7 @@ public enum Department {
 
     private final String nombreEsp;
 
-    Department (String nombreEsp) {
+    private Department (String nombreEsp) {
         this.nombreEsp = nombreEsp;
     }
 

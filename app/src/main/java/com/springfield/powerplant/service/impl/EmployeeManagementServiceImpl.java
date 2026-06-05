@@ -58,24 +58,24 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     public Map<String, Long> getExperienceLevelStatistics() {
 
-        Long novatoCount = 0l;
-        Long intermedioCount = 0l;
-        Long expertoCount = 0l;
-        
+        long novatoCount = 0L;
+        long intermedioCount = 0L;
+        long expertoCount = 0L;
+
         for (var employee : getEmployees()) {
 
             if (employee.getExperienceLevel() == ExperienceLevel.NOVATO) {
                 novatoCount += 1;
-            } if (employee.getExperienceLevel() == ExperienceLevel.INTERMEDIO) {
+            } else if (employee.getExperienceLevel() == ExperienceLevel.INTERMEDIO) {
                 intermedioCount += 1;
             } else {
                 expertoCount += 1;
             }
         }
 
-        HashMap<String, Long> stats = new HashMap<String, Long>();
+        Map<String, Long> stats = new HashMap<String, Long>();
         stats.put("Novato", novatoCount);
-        stats.put("Intermediario", intermedioCount);
+        stats.put("Intermedio", intermedioCount);
         stats.put("Experto", expertoCount);
         return stats;
 
@@ -84,16 +84,20 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     public boolean isDepartmentFullyCovered(Department targetDepartment) {
 
-        boolean isCovered = false;
-
-        for (var employee : getEmployees()) {
-            if (employee.getDepartment() == targetDepartment) {
-                isCovered = true;
-            } else {
-                isCovered = false;
+        for (Shift shift : Shift.values()) {
+            boolean isCovered = false;
+            for (var employee : getEmployees()) {
+                if (employee.getDepartment() == targetDepartment && employee.getShift() == shift) {
+                    isCovered = true;
+                    break;
+                }
+            }
+            if (!isCovered) {
+                return false;
             }
         }
-        return isCovered;
+        return true;
+
     }
 
 

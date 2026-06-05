@@ -25,4 +25,7 @@ git clone https://github.com/SaraGG96/examen.git
 7. implementation libs.guava - eliminar de build
 8. Crear el jar (simple) con *"gradle jar"*
 9. Ejecutar el jar con **java -jar .\app\build\libs\app.jar**
-10. El get de id, para asegurarse el doble de que nunca se obtiene un null, se puede poner como **Optional<Integer> getId() ** y devolver **return Optional.ofNullable(id);**
+10. Para optional id: **private final Optional<Integer> id;** y en el constructor **this.id = Optional.ofNullable(id);**. El getter es como siempre, porque ya se inicializó en el atributo.
+11. Visibilidad por defecto de todo pasa a package.
+12. La visilibilidad de un constructor de Enum siempre es private.
+13. Getters no usados en el toString de Employee.java.

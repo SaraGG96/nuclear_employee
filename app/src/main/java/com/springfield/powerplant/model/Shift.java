@@ -8,11 +8,11 @@ public enum Shift {
 
     private final String nombreEsp;
 
-    Shift (String nombreEsp) {
+    private Shift (String nombreEsp) {
         this.nombreEsp = nombreEsp;
     }
 
-    public String getNombreEspanol() {
+    String getNombreEspanol() {
         return this.nombreEsp;
     }
     
