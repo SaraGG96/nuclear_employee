@@ -29,3 +29,5 @@ git clone https://github.com/SaraGG96/examen.git
 11. Visibilidad por defecto de todo pasa a package.
 12. La visilibilidad de un constructor de Enum siempre es private.
 13. Getters no usados en el toString de Employee.java.
+14. Para variar, se puede usar un forEach para acortar código **getEmployees().forEach(System.out::println);**
+15. En create employee, el print debe estar en otra función porque es otra responsabilidad: **System.out.println("Empleado " + employee.getName() + " asignado al departamento: " + employee.getDepartment().getNombreEspanol());** moverlo a displayEmployee.

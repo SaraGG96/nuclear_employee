@@ -19,8 +19,12 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     public Employee createEmployee(String name, int id, Department department, ExperienceLevel experienceLevel, Shift shift) {
         Employee employee = new Employee(name, id, department, experienceLevel, shift);
         employees.add(employee);
-        System.out.println("Empleado " + employee.getName() + " asignado al departamento: " + employee.getDepartment().getNombreEspanol());
+        displayEmployee(employee);
         return employee;
+    }
+
+    public void displayEmployee(Employee employee) {
+        System.out.println("Empleado " + employee.getName() + " asignado al departamento: " + employee.getDepartment().getNombreEspanol());
     }
 
     public List<Employee> getEmployees() {
@@ -28,9 +32,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
     }
 
     public void listCrew() {
-        for (var employee : getEmployees()) {
-            System.out.println(employee.toString());
-        }
+        getEmployees().forEach(System.out::println);
     }
 
     public int crewSize() {
